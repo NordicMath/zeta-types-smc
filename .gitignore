@@ -1,0 +1,19 @@
+#Ignore terminals
+*.term
+
+#Ignore Trash
+Trash/*
+
+#Ignore directories beginning with ., excpect gitignore
+.*
+!.gitignore
+
+#Ignore backup
+Backup29jan.zip
+
+#Ignore MNIST data
+Neural-Networks/MNIST_data
+
+#Ignore work in progress and irrelevant files
+WorkInProgress/*
+Sorry for using this for non-math

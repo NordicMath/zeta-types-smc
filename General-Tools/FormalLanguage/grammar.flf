@@ -1,0 +1,3 @@
+MANY  X := X MANY(X) | ""
+SOME  X := X MANY(X)
+MAYBE X := X | ""

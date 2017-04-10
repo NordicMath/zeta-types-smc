@@ -1,0 +1,143 @@
+
+{
+    "format": "Edinburgh 1",
+    "functions": [
+        {
+            "name":       "zero",
+            "symbol":     "Ø/Ø",
+            "latex":      "\\epsilon"
+        },
+        {
+            "name":       "one",
+            "symbol":     "{1}/Ø",
+            "latex":      "1",
+            "latex_eval": "1"
+        },
+        {
+            "name":       "mu",
+            "symbol":     "Ø/{1}",
+            "latex":      "\\mu"
+        },
+        {
+            "name":       "id",
+            "symbol":     "{p}/Ø",
+            "latex":      "Id",
+            "latex_eval": "{-}"
+        },
+        {
+            "name":       "id_2",
+            "symbol":     "{p^2}/Ø",
+            "latex":      "Id_2",
+            "latex_eval": "{\\left(-\\right)}^2"
+        },
+        {
+            "name":       "id_3",
+            "symbol":     "{p^3}/Ø",
+            "latex":      "Id_3",
+            "latex_eval": "{\\left(-\\right)}^3"
+        },
+        {
+            "name":       "tau",
+            "symbol":     "{1, 1}/Ø",
+            "latex":      "\\tau"
+        },
+        {
+            "name":       "tau_3",
+            "symbol":     "{1, 1, 1}/Ø",
+            "latex":      "\\tau_3"
+        },
+        {
+            "name":       "tau_4",
+            "symbol":     "{1, 1, 1, 1}/Ø",
+            "latex":      "\\tau_4"
+        },
+        {
+            "name":       "sigma",
+            "symbol":     "{1, p}/Ø",
+            "latex":      "\\sigma"
+        },
+        {
+            "name":       "euler_phi",
+            "symbol":     "{p}/{1}",
+            "latex":      "\\varphi"
+        },
+        {
+            "name":       "liouville",
+            "symbol":     "{-1}/Ø",
+            "latex":      "\\lambda"
+        },
+        {
+            "name":       "gamma",
+            "symbol":     "{1}/{2}",
+            "latex":      "\\gamma"
+        },
+        {
+            "name":       "dedekind_psi",
+            "symbol":     "{p}/{-1}",
+            "latex":      "\\psi"
+        },
+        {
+            "name":       "theta",
+            "symbol":     "{1}/{-1}",
+            "latex":      "\\theta"
+        },
+        {
+            "name":       "core",
+            "symbol":     "{1}/{1-p}",
+            "latex":      "\\text{Core}_1"
+        },
+        {
+            "name":       "beta",
+            "symbol":     "{p,-1}/Ø",
+            "latex":      "\\beta"
+        },
+        {
+            "name":       "char_fn_squares",
+            "symbol":     "{1, -1}/Ø",
+            "latex":      "\\epsilon_2"
+        },
+        {
+            "name":       "char_fn_squarefree",
+            "symbol":     "Ø/{-1}",
+            "latex":      "\\xi"
+        }
+
+    ],
+    "function-families": [
+        {
+            "indexed_by": ["k"],
+            "name":       "id_$k$",
+            "symbol":     "{p^$k$}/Ø",
+            "latex":      "Id_{$k$}",
+            "latex_eval": "{\\left(-\\right)}^{$k$}"
+        },
+        {
+            "indexed_by": ["k"],
+            "name":       "sigma_$k$",
+            "symbol":     "{p^$k$, 1}/Ø",
+            "latex":      "\\sigma_{$k$}"
+        },
+        {
+            "indexed_by": ["k"],
+            "name":       "jordan_$k$",
+            "symbol":     "{p^$k$}/{1}",
+            "latex":      "\\jordan_{$k$}"
+        },
+        {
+            "indexed_by": ["k"],
+            "name":       "psi_$k$",
+            "symbol":     "{p^$k$}/{-1}",
+            "latex":      "\\psi_{$k$}"
+        },
+        {
+            "indexed_by": ["k"],
+            "name":       "tau_$k$",
+            "symbol":     "|$k$ * [1]|",
+            "latex":      "\\tau_{$k$}"
+        }
+
+    ]
+}
+
+
+

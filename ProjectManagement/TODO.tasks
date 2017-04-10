@@ -1,0 +1,5 @@
+{"desc":"Fix issue with mult.lib. having both sigma and sigma_1","position":-1,"last_edited":1486863864172,"task_id":"76ef50a7-b1c2-4869-9f49-0ef07d1483aa"}
+{"desc":"Add monoid algebra-parsing to ts-parsing","position":0,"last_edited":1486987881689,"task_id":"a3977924-d8b7-49e3-9182-9d23fb4d4b79","done":1486987881689}
+{"desc":".define() behaviour (using isidentifier)","position":1,"last_edited":1486932427017,"task_id":"4aff97fe-cc4f-4fd9-9544-ed12a615f3a7","done":1486932426606}
+{"desc":"Add Dirichlet Characters","position":0.5,"last_edited":1486948420645,"task_id":"e999505f-4a0c-49b7-bf56-9a540f833165"}
+{"desc":"Add interface to LMFDB","position":0.75,"last_edited":1486948436442,"task_id":"2ab48e87-2b51-41a0-bec9-31aa8dd3e009"}
