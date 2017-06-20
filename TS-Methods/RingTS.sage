@@ -36,5 +36,5 @@ class RingTannakianSymbols(TannakianSymbols):
 
         # Returns a generator (lazy list) containing the point counts of a Tannakian symbol
         def getPointCounts(self, length = None):
-            return LazyList(lambda x: 1 if x==0 else self.adamsoperation(x).trace(), printed=length)
+            return LazyList(lambda x: parent(self).base_monoid.one() if x==0 else self.adamsoperation(x).trace(), printed=length)
 

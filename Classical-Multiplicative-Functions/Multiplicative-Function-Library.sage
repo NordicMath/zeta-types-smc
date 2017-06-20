@@ -72,7 +72,7 @@ class MultiplicativeFunctionObject(object):
     def varReplace(self, s, pars):
         if s:
             rep = {re.escape("$" + k + "$"): str(v) for k, v in pars.iteritems()}
-            return re.sub("|".join(rep.keys()), lambda m: rep[re.escape(m.group(0))], s)
+            return re.sub( "|".join(rep.keys()), lambda m: rep[re.escape(m.group(int(0)))], s)
         else:
             return None
 

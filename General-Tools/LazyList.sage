@@ -71,3 +71,8 @@ def liftUnaryOpToLazyList(func, exclude = -1):
 
 def toLazyList(list):
     return LazyList(data = lambda n: list[n] if n < len(list) else 0, cache = False, printed = len(list))
+
+def DirichletConvolution(X, Y):
+    return LazyList(data = lambda n: sum(X[d] * Y[n - d] for d in range(n + 1)), cache = True, printed = min(X.printed, Y.printed))
+
+PointwiseProduct = liftBinaryOpToLazyList(operator.mul)

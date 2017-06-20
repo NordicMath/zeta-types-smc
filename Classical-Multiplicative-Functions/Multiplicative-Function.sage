@@ -359,7 +359,7 @@ class LatexEvalVariables(object):
         v, k = self.pool[cmaxi]
         self.pool[cmaxi] = (v, k + 1)
 
-        return v + ('' if k < 0 else '_' + str(k))
+        return v + ('' if k < 0 else '_{' + str(k) + '}')
 
     def nextInput(self):
         return self.nextFrom(PRIMARY_VARIABLE_POOL_INPUT)

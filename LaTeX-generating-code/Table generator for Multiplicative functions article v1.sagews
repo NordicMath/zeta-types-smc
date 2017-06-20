@@ -1,4 +1,4 @@
-︠9de3a23c-658a-4679-b24f-fe55ea353f33s︠
+︠9de3a23c-658a-4679-b24f-fe55ea353f33︠
 # Helper Functions
 
 def hline():
@@ -37,7 +37,7 @@ def myFourierCoefficient(n):
     return A[n]
 
 
-    
+
 
 myFou = lambda p,e: myFourierCoefficient(p^e)
 

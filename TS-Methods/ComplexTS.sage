@@ -6,6 +6,7 @@ import operator
 ### Methods for complex Tannakian symbols ###
 ###
 ### Binary operations:     boxsum
+###                        boxsubtract
 ###                        boxproduct
 ###
 ### Factory methods:       getTSFromBellCoefficients
@@ -22,6 +23,8 @@ import operator
 ### Unary operations:      adamshatoperation
 ###                        boxadamsoperation
 ###                        boxadamshatoperation
+###                        bellderivative
+###                        bellantiderivative
 ###
 ### Helper methods:        reciprocal_roots
 ###                        BellDerivative
@@ -56,6 +59,7 @@ class ComplexTannakianSymbols(RingTannakianSymbols):
         return lambda x, point_length = DEFAULT_BERLEKAMP_LENGTH: self.getTSFromPointCounts(liftUnaryOpToLazyList(unary, exclude=exclude)(x.getPointCounts()), point_length)
     
     boxsum = lambda self, *args, **kwargs: self.liftBellBinaryOp(operator.add, exclude = 0)(*args, **kwargs)
+    boxsubtract = lambda self, *args, **kwargs: self.liftBellBinaryOp(operator.sub, exclude = 0)(*args, **kwargs)
     boxproduct = lambda self, *args, **kwargs: self.liftBellBinaryOp(operator.mul, exclude = 0)(*args, **kwargs)
     
     # Returns Tannakian Symbol from a list of Bell coefficients
@@ -97,6 +101,12 @@ class ComplexTannakianSymbols(RingTannakianSymbols):
         
         def boxadamshatoperation(self, k):
             return parent(self).getTSFromBellCoeffs(self.getBellCoefficients().expand(k))
+        
+        def bellderivative(self):
+            return parent(self).boxproduct(self, parent(self).parseSymbol("{1, 1}/Ø")) - self
+        
+        def bellantiderivative(self):
+            return parent(self).getTSFromBellCoeffs(BellAntiderivative(self.getBellCoefficients()))
         
         def showplot(self, downstairscolor="red", upstairscolor="blue", showsymbol = False, p = None, showunitcircle = False, dotsize = 72):
             if showsymbol:

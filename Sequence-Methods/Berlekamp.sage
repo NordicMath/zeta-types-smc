@@ -138,6 +138,52 @@ def bmcheck(inlist):
                 break
     return prf
 
+def bmcheckguess(inlist, minmaxrusk): #(Informasjon: listen "[0,0,0,0,0...]" gir tom teller.) Denne antar at det ikke finnes mer enn minmax elementer med rusk, men kan også fungere med mer rusk. Runs faster than bmcheck
+    for j in range(0,2):
+        if j==0:
+            i=0
+        elif j==1 and minmaxrusk>=2:
+            i=minmaxrusk
+        else:
+            break
+        #a_(n-2d-4) must be in the list:
+        d=floor((len(inlist)-i-1-4)/2) #-i to detect recursive sequences with gradually more junk. kan trekke fra mer her for å øke antall ledd rekursjonen må gjelde for
+        if d<1:
+            break
+
+        detlist=[]
+
+        for i in range(d, len(inlist)-d):
+            m=matrix(d+1)
+            for j in range(0,d+1):
+                for k in range(0,d+1):
+                    m[j,k]=inlist[j+k+i-d]
+            detlist.append(m.det())
+
+        if len(detlist)>=2:
+            enddetlist=[]
+            enddetlist.append(detlist[-2])    #kan legges til mer i enddetlist hvis ønskelig
+            enddetlist.append(detlist[-1])
+            if all(w==0 for w in enddetlist):
+                A=matrix(d+5,d)
+                B=matrix(d+5,1)
+                for c in range(0,d+5):
+                    B[c,0]=-(inlist[-1-c])
+                for j in range(0,d+5):
+                    for k in range(0,d):
+                        A[j,k]=inlist[len(inlist)-2-j-k]
+                X=matrixsolve(A,B)
+                if X!="ns":
+                    q=[1]
+                    for j in range(0,d):
+                        q.append(X[j,0])
+                    ptemp=listmult(q, inlist)
+                    for z in range (0,d):
+                        ptemp[-1-z]=0
+                    p=trimfinalzeroes(ptemp)
+                    trimfinalzeroes(q)
+                    return [p,q]
+    return []
 
 #print bmcheck(inputlist)
 # if result==[]:
