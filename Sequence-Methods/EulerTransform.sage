@@ -105,15 +105,6 @@ def EulerInverse2(inlist):    #inlist[d]=b_(d+1) og b_1, b_2, b_3... er inputtal
     Dothparam=onedivdlist
     return Doth(DirichletConvolutionWithh(EulerInversePartOne(inlist), DirichletConvParam),Dothparam)
 
-def EulerInverseWithChanges(inlist):    #inlist[d]=b_(d+1) og b_1, b_2, b_3... er inputtallfølgen. This is almost the same as EulerInverse2, but the transform is made to be slightly modified to try to find systems in Fourier coefficients from other numberfields/elliptic curves
-    MobiusValues=[0]   #0 is just there as a placeholder, not used.
-    onedivdlist=[0]    #0 is just there as a placeholder, not used.
-    for i in range(1, len(inlist)+1):
-        MobiusValues.append(MobiusFunction(i))
-        onedivdlist.append(1/i)
-    DirichletConvParam=MobiusValues
-    Dothparam=onedivdlist
-    return Doth(DirichletConvolutionWithh(EulerInversePartOne(inlist), DirichletConvParam),Dothparam)
 
 def WittConvolutionWithFunctionh(b, listofvaluesfromh): #Let b=[b_1,b_2,b_3....], listofvaluesfromh[d]=h(d) where d is a natural number>=1
     if(type(listofvaluesfromh)==Expression):##to make it possible to input a function of x, for instance x^2, make sure to do x=var('x') first if you input an expression and not a list of values of h.
@@ -132,7 +123,7 @@ def WittConvolutionWithFunctionh(b, listofvaluesfromh): #Let b=[b_1,b_2,b_3....]
         Output.append(OutputElement)
     return Output
 
-def BellAntiDerivative(inlist): #Let inlist=[b_1,b_2,b_3....] , duplicate of the one found in BellDerivative.sage
+def BellAntiDerivative(inlist): #Let inlist=[b_1,b_2,b_3....] , duplicate of inverseshiftedlogderivative found in BellDerivative.sage
     print "use InverseShiftedLogDerivative instead."
     inlist=[0]+inlist
     Output=[0, inlist[1]]
@@ -146,7 +137,7 @@ def BellAntiDerivative(inlist): #Let inlist=[b_1,b_2,b_3....] , duplicate of the
     del inlist[0]
     return Output
 
-def BellDerivative(inlist): #Let inlist=[b_1,b_2,b_3....], duplicate of the one found in BellDerivative.sage
+def BellDerivative(inlist): #Let inlist=[b_1,b_2,b_3....], duplicate of shiftedlogderivative found in BellDerivative.sage
     print "use ShiftedLogDerivative instead."
     inlist=[0]+inlist
     Output=[0]

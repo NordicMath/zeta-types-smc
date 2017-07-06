@@ -46,7 +46,7 @@ def f6(x, y):
     return y^2+y-x^3+x^2
 
 def f7(x, y):
-    return y^3 + y - x^4
+    return y*(y^2 + 1) - (x^2)^2
 
 #TODO 3: Create a list of the functions you actually want to use. 
 #All these must take the right number of variables as input, corresponding to your choice of V above.
@@ -55,10 +55,10 @@ def f7(x, y):
 my_list_of_functions = [f7]
 
 #TODO 4: Set number of rows in table:
-R = 4
+R = 2
 
 #TODO 5: Set number of columns in table:
-C = 5
+C = 10
 
 #TODO 6: Set a limit on the size of the finite field. If this number is too large, the algorithm needs a lot of time.
 field_size_limit = 100000000
@@ -144,17 +144,10 @@ pcm = affine_point_count(R, C, V, my_list_of_functions)
 print pcm
 
 
-︡f85c34ab-1c24-46f5-83cc-7e85b42ffd08︡{"stdout":"Starting row with prime 2.\nColumn 1 in 0.0 seconds.\nColumn 2 in 0.0 seconds.\nColumn 3 in 0.0 seconds.\nColumn 4 in 0.0 seconds.\nColumn 5 in 0.004 seconds.\nStarting row with prime 3.\nColumn 1 in 0.0 seconds.\nColumn 2 in 0.0 seconds.\nColumn 3 in 0.004 seconds.\nColumn 4 in 0.012 seconds.\nColumn 5 in 0.1 seconds."}︡{"stdout":"\nStarting row with prime 5.\nColumn 1 in 0.0 seconds.\nColumn 2 in 0.0 seconds.\nColumn 3 in 0.028 seconds.\nColumn 4 in 0.864 seconds."}︡{"stdout":"\nColumn 5 in 22.2 seconds."}︡{"stdout":"\nStarting row with prime 7.\nColumn 1 in 0.0 seconds.\nColumn 2 in 0.004 seconds.\nColumn 3 in 0.204 seconds."}︡{"stdout":"\nColumn 4 in 12.86 seconds."}︡{"stdout":"\nColumn 5 in 639.0 seconds."}︡{"stdout":"\nThe total time used was 675.28 seconds\n"}︡{"stdout":"[[    2     4     8    16    32]\n [    3    27    27    27   243]\n [    3    19   147   667  3043]\n [    7    91   343  2107 16807]]\n"}︡{"done":true}︡
+︡31882f25-cb21-4d4d-821c-af7b09c7cd6a︡{"stdout":"Starting row with prime 2.\nColumn 1 in 0.0 seconds.\nColumn 2 in 0.0 seconds."}︡{"stdout":"\nColumn 3 in 0.0 seconds.\nColumn 4 in 0.0 seconds.\nColumn 5 in 0.016 seconds.\nColumn 6 in 0.0 seconds.\nColumn 7 in 0.064 seconds.\nColumn 8 in 0.22 seconds."}︡{"stdout":"\nColumn 9 in 1.068 seconds."}︡{"stdout":"\nColumn 10 in 4.08 seconds."}︡{"stdout":"\nStarting row with prime 3.\nColumn 1 in 0.0 seconds.\nColumn 2 in 0.0 seconds.\nColumn 3 in 0.0 seconds.\nColumn 4 in 0.0 seconds.\nColumn 5 in 0.232 seconds."}︡{"stdout":"\nColumn 6 in 2.14 seconds."}︡{"stdout":"\nColumn 7 in 18.46 seconds."}︡{"stdout":"\nColumn 8 in 169.632 seconds."}︡{"stdout":"\nColumn 9 in 1579.136 seconds."}︡{"stdout":"\nColumn 10 in 14852.168 seconds."}︡{"stdout":"\nThe total time used was 16627.216 seconds\n"}︡{"stdout":"[[    2     4     8    16    32    64   128   256   512  1024]\n [    3    27    27    27   243   891  2187  6075 19683 60507]]\n"}︡{"done":true}︡
 ︠8d08aadf-fda8-4321-8db7-7a6797af099bs︠
 ︡e699b481-7900-4ff7-9bbf-7bc3071a299b︡{"done":true}︡
 ︠7e728bb4-d311-4920-9bde-4c38b9429c34︠
-
-
-
-
-
-
-
 
 
 

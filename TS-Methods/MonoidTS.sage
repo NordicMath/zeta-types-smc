@@ -192,6 +192,9 @@ class TannakianSymbols(CombinatorialFreeModule):
         def fmap(self, f):
             return parent(self).createElement([(f(x), n) for x, n in self])
         
+        def filter(self, f):
+            return parent(self).createElement([(x, n) for x, n in self if f(x)])
+        
         #Function to automatically print Tannakian symbols as a string (e.g. "{2}/{1, 5}") or in LaTeX format
         def _repr_(self, latex=false, element_stringifier = str, post_proc=None):
             #if self.parent().base_ring() != ZZ:

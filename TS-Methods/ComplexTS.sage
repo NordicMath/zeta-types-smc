@@ -108,7 +108,7 @@ class ComplexTannakianSymbols(RingTannakianSymbols):
         def bellantiderivative(self):
             return parent(self).getTSFromBellCoeffs(BellAntiderivative(self.getBellCoefficients()))
         
-        def showplot(self, downstairscolor="red", upstairscolor="blue", showsymbol = False, p = None, showunitcircle = False, dotsize = 72):
+        def showplot(self, downstairscolor="red", upstairscolor="blue", showsymbol = False, p = None, showunitcircle = False, dotsize = 72, returnPlot = False):
             if showsymbol:
                 text("Plot for $" + latex(self) + "$", (0, 0)).show(axes = False)
             
@@ -134,7 +134,12 @@ class ComplexTannakianSymbols(RingTannakianSymbols):
                 for n in [n for n in range(2 * log(minabs)/log(p) - 1, 2 + 2 * log(maxabs)/log(p))]:
                     result += circle((0, 0), sqrt(p)^n, linestyle = "dashed" if n % 2 == 1 else "solid", color="black")
             
-            result.show(axes=True, gridlines=True)
+            if returnPlot:
+                result.axes = True
+                result.agridlies = True
+                return result
+            else:
+                result.show(axes=True, gridlines=True)
 
 def toNearestGaussianInteger(z):
     return round(real(z)) + round(imag(z)) * I

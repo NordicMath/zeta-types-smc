@@ -1,6 +1,13 @@
 #inputlist=[3,4,2,6,18,54,162,486,1458]
 
 
+def bmcheckalternative(inlist, notused):  #prints lists for use in gp
+    print inlist
+    return []
+    #gp.RgXQ_ratlift(Polrev(Vec(inlist)),x^len(inlist),len(inlist)-10,len(inlist)-10,gp.&num,gp.&denom)
+    #myResult=gp.bestapprPade(gp.Ser(inlist))
+    #return [map(Integer, gp.Vec(num)), map(Integer, gp.Vec(denom))]
+
 def matrixsolve(a,b):
     try:
         X=a.solve_right(b)

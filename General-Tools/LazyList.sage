@@ -20,6 +20,10 @@ class LazyList:
             self.cache[n] = data
         return data
     
+    def __eq__(self, other):
+        print ("It's impossible to calculate if two infinite sequences are equal... returning false")
+        return False
+    
     def __iter__(self):
         for n in (itertools.count() if printed==None else range(self.printed)):
             yield self[n]
