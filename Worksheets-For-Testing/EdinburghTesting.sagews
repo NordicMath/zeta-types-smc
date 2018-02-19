@@ -2,19 +2,21 @@
 import itertools
 import functools
 
-%attach ../Tannakian-Symbol-Methods/TS-Methods.sage
 %attach ../General-Tools/LazyList.sage
 %attach ../Sequence-Methods/Berlekamp.sage
-%attach ../Tannakian-Symbol-Methods/RingTannakianSymbols.sage
+#%attach ../TS-Methods/TannakianSymbols.sage
+%attach ../TS-Methods/MonoidTS.sage
+%attach ../TS-Methods/RingTS.sage
+%attach ../TS-Methods/ComplexTS.sage
 
 TS = ComplexTannakianSymbols()
 
 getTS = lambda x: TS.getTSFromBellCoeffs(x, 20)
-getBC = TS.getBellCoefficients
+getBC = lambda x: x.getBellCoefficients
 
 
 ts = TS.parseSymbol
-trace = TS.trace
+#trace = TS.trace
 
 A = ts("{2,4,5,6,2}/{1,-3}")
 
@@ -26,13 +28,15 @@ zeta3 = CyclotomicField(3).gen()
 
 print zeta3
 
-D = ts("{1, zeta3, zeta3^2}/Ø")
+D = ts("{zeta3, zeta3^2}/Ø")
 
-print TS.boxproduct(D, D)
+#print TS.boxproduct(D, D)
+D.gammaoperation(3)
 
 #print (example * example).symmetricpoweroperation(6)
 #print example.lambdaoperation(6)
-︡4a9030d8-4f76-4d65-a5c1-39d0ac939cc7︡{"stdout":"zeta3\n"}︡{"stdout":"{1.00000000000000, -0.500000000000000 + 0.866025403784439*I, -0.500000000000000 - 0.866025403784439*I}/Ø"}︡{"stdout":"\n"}︡{"done":true}︡
+︡d1d85958-2d73-4ace-a51f-a34fbb48b487︡{"stdout":"zeta3\n"}︡{"stdout":"{1, 1, zeta3, -zeta3 - 1}/Ø\n"}︡{"done":true}︡
+︠3909c910-0097-4ad8-bc3b-0f76ab8cd23e︠
 
 
 

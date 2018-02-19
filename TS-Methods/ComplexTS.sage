@@ -108,7 +108,7 @@ class ComplexTannakianSymbols(RingTannakianSymbols):
         def bellantiderivative(self):
             return parent(self).getTSFromBellCoeffs(BellAntiderivative(self.getBellCoefficients()))
         
-        def showplot(self, downstairscolor="red", upstairscolor="blue", showsymbol = False, p = None, showunitcircle = False, dotsize = 72, returnPlot = False):
+        def showplot(self, downstairscolor="red", upstairscolor="blue", showsymbol = False, p = None, showunitcircle = False, showelementcircles = False, dotsize = 72, returnPlot = False):
             if showsymbol:
                 text("Plot for $" + latex(self) + "$", (0, 0)).show(axes = False)
             
@@ -128,6 +128,12 @@ class ComplexTannakianSymbols(RingTannakianSymbols):
             if showunitcircle:
                 result.set_aspect_ratio(1)
                 result += circle((0, 0), 1, color = "black")
+            
+            if showelementcircles:
+                result.set_aspect_ratio(1)
+                for x, _ in self:
+                    result += circle((0, 0), abs(x), color = "black")
+
             
             if p != None:
                 result.set_aspect_ratio(1)
@@ -155,9 +161,9 @@ def getLZFromBellCoeffs(bellCoeffs, bell_length=None):
         list = bellCoeffs.toList(bell_length if bell_length != None else DEFAULT_BERLEKAMP_LENGTH)
     else:
         list = list if bell_length == None else list[:bell_length]
-    if any(map(lambda z: round(real(z)) - z != 0, list)):
-        raise NotImplementedError("Berlekamp currently can't do this. The following is the coeff's input: " + str(list))
-    local_zeta_function = bmcheck(map(lambda x: round(real(x)), list))
+    #if any(map(lambda z: round(real(z)) - z != 0, list)):
+    #    raise NotImplementedError("Berlekamp currently can't do this. The following is the coeff's input: " + str(list))
+    local_zeta_function = bmcheck(list)#lambda x: round(real(x)), list))
     if local_zeta_function == []:
         raise ArithmeticError("Berlekamp produced an empty list")
     return tuple(local_zeta_function[-1])

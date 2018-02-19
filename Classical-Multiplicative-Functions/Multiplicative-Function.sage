@@ -23,6 +23,9 @@ class MultiplicativeFunctionHistory():
         self.operation = operation
         self.values = values
 
+    def __eq__(self, other):
+        return isinstance(other, MultiplicativeFunctionHistory) and self.operation == other.operation and self.values == other.values
+
     # Get the symbol based of the history
     def getSymbol(self):
         a, prop = head(self.operation)
@@ -240,7 +243,17 @@ class MultiplicativeFunction(object):
     def adamsoperation(self, n):
         return MultiplicativeFunction(history=MultiplicativeFunctionHistory(operations['PSI'](n), self))
 
-    def printBellTable(self, latex = False, width = 10, height = 5, BellDegree = 0, latexCaption = "", latexLabel = "", includeOnes = True, latexIncludePE = True, latexBorder = True):
+    def printBellTable(self, latex = False, width = 10, height = 5, BellDegree = 0, latexCaption = "", latexLabel = "", includeOnes = True, latexIncludePE = True, latexBorder = True, returnText = False):
+        class local:
+            text = ""
+
+        def printer(string):
+            if returnText:
+                local.text += string + "\n"
+            else:
+                print string
+
+
         offset = 0 if includeOnes else 1
         width += offset
 
@@ -253,35 +266,38 @@ class MultiplicativeFunction(object):
         data = reduce(lambda x, f: map(f, x), [BellDerivative if BellDegree > 0 else BellAntiderivative]*abs(BellDegree), data)
 
         if latex:
-            print r"\begin{table}"
-            print r"\centering"
+            printer(r"\begin{table}")
+            printer(r"\centering")
 
             if latexCaption != "":
-                print r"\latexCaption{" + latexCaption + "}"
+                printer(r"\latexCaption{" + latexCaption + "}")
             if latexLabel != "":
-                print r"\latexLabel{" + latexLabel + "}"
+                printer(r"\latexLabel{" + latexLabel + "}")
 
-            print r"\begin{tabular}{" + ("| " if latexBorder else "") + (" | " if latexBorder else "").join((['l |' if latexBorder else 'l'] if latexIncludePE else []) + ['c'] * (width - offset)) + (" |" if latexBorder else "") + "}"
+            printer(r"\begin{tabular}{" + ("| " if latexBorder else "") + (" | " if latexBorder else "").join((['l |' if latexBorder else 'l'] if latexIncludePE else []) + ['c'] * (width - offset)) + (" |" if latexBorder else "") + "}")
 
             if latexIncludePE:
                 if latexBorder:
-                    print "\\hline"
-                print "& " + " & ".join(map(lambda n: "$e = %i$" % n, range(offset, width))) + r"\\"
+                    printer("\\hline")
+                printer("& " + " & ".join(map(lambda n: "$e = %i$" % n, range(offset, width))) + r"\\")
                 if latexBorder:
-                    print "\\hline"
-                    print "\\hline"
+                    printer("\\hline")
+                    printer("\\hline")
 
             for j in range(height):
-                print ("$p = %i$ & " % Primes().unrank(j) if latexIncludePE else "") + " & ".join(map(lambda x: "$" + x._latex_() + "$", data[j][offset:])) + r" \\"
+                printer(("$p = %i$ & " % Primes().unrank(j) if latexIncludePE else "") + " & ".join(map(lambda x: "$" + x._latex_() + "$", data[j][offset:])) + r" \\")
                 if latexBorder:
-                    print "\\hline";
+                    printer("\\hline");
 
-            print r"\end{tabular}"
+            printer(r"\end{tabular}")
 
-            print r"\end{table}"
+            printer(r"\end{table}")
         else:
             for j in range(height):
-                print "p =", Primes().unrank(j), ":", data[j][offset:]
+                printer("p = " + str(Primes().unrank(j)) + " : " + str(data[j][offset:]))
+
+        if returnText:
+            return local.text
 
     def isAtomic(self):
         return False
@@ -371,6 +387,9 @@ class MIdentity():
     def __init__(self, LHS, RHS):
         self.LHS = LHS
         self.RHS = RHS
+
+    def __eq__(self, other):
+        return self.LHS.history == other.LHS.history and self.RHS.history == other.RHS.history
 
     def check(self):
         return self.LHS == self.RHS
