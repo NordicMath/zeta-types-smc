@@ -1,5 +1,0 @@
-IMPORT alphabet.flf
-IMPORT grammar.flf
-
-WORD   := SOME(LETTER)
-SPACES := MANY(SPACE)
