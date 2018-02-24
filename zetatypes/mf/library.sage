@@ -80,7 +80,6 @@ class MultiplicativeFunctionObject(object):
         return AtomicMultiplicativeFunction(**({k: self.varReplace(v, parameters) for k, v in self.params.iteritems()} if self.family else self.params))
 
 
-DEFAULT_MULTIPLICATIVE_FUNCTION_PATH = "../Classical-Multiplicative-Functions/classical-functions.json"
 
 multiplicativeFunctionLibrary = MultiplicativeFunctionLibrary()
 
@@ -93,7 +92,7 @@ def defineMF():
     global mfd
     mfd = lambda dname, name=None: mf(dname).define(name=name)
 
-def loadMultiplicativeLibrary(source=DEFAULT_MULTIPLICATIVE_FUNCTION_PATH):
+def loadMultiplicativeLibrary(source):
     data = json.load(open(source, "r"))
 
     if data["format"] == "Edinburgh 1":
