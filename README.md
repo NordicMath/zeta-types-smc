@@ -3,13 +3,13 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## Description
-This repository is cleaned up version of the sagemath cloud (project this was forked from). It will let you use code for computing with Tannakian Symbols and Multiplicative Functions.
+This repository is cleaned up version of the Sagemath cloud (project this was forked from). It will let you use code for computing with Tannakian Symbols and Multiplicative Functions.
 
 ## Installation
 There are two main ways to install:
 
 #### Create a CoCalc Project (and account if you haven't already)
-The advantage of using CoCalc is that it works on all operating systems, and sagemath is already installed. Everything can be done free of charge, but we recommend paying for CoCalc, as the services it provides are excellent.
+The advantage of using CoCalc is that it works on all operating systems, and Sagemath is already installed. Everything can be done free of charge, but we recommend paying for CoCalc, as the services it provides are excellent.
 
 
 
@@ -19,9 +19,9 @@ If you want to pay for Internet access, you can create a terminal and write 'git
 If you don't want to pay, download a release (for instance [https://github.com/NordicMath/zeta-types-smc/releases/tag/v1.1](https://github.com/NordicMath/zeta-types-smc/releases/tag/v1.1)), upload it to CoCalc, and unpack the zip file.
 
 #### Clone/download to your own computer
-This requires installation of sage, which only works on the Linux operating system (one can also virtualise linux on windows or mac using VirtualBox, VMWare, or similar)
+This requires installation of sage, which only works on the Linux operating system (one can also virtualise Linux on windows or mac using VirtualBox, VMWare, or similar)
 
-1. Install sagemath
+1. Install Sagemath
 2. Clone "https://github.com/NordicMath/zeta-types-smc/" or download [https://github.com/NordicMath/zeta-types-smc/releases/tag/v1.1](https://github.com/NordicMath/zeta-types-smc/releases/tag/v1.1)) to your own computer 
 
 ### Usage
@@ -37,8 +37,8 @@ Technical help will always be available by mailing Torstein Vik  ([torsteinv64@g
 #### Tannakian symbols
 * Tannakian symbols for any monoid, ring, and the complex numbers (with increasingly more features)
 * Algorithms to find the (Complex) Tannakian symbol for any sequence 
-* Tannakian symbol structure methods, such as upstairs and downstairs multiset, super-, odd-, and even dimension, augmentation, and whether a Tannakian symbol is a line element
-* Tannakian symbol circle- and boxoperations 
+* Tannakian symbol structure methods, such as upstairs and downstairs multisets, super-, odd-, and even dimension, augmentation, and whether a Tannakian symbol is a line element
+* Tannakian symbol circle- and box-operations 
 * Bell derivative of Tannakian symbols and sequences
 
 #### LazyList
@@ -95,14 +95,14 @@ This framework is and will remain completely open source, under the GNU General 
 
 ## Folder structure
 
-* /src/ -- Source directory, where the original sagemath code is.
+* /src/ -- Source directory, where the original Sagemath code is.
 * /src/mf -- Sage code for multiplicative functions
 * /src/ts -- Sage code for Tannakian symbols
-* /src/util -- Sage code for lazy lists, and the berlekamp massey algorithm (utility functionality) 
+* /src/util -- Sage code for lazy lists, and the Berlekamp-Massey algorithm (utility functionality) 
 * /zetatypes/ -- The preparsed python-compatible code
 * /zetatypes/mf -- Python code for multiplicative functions
 * /zetatypes/ts -- Python code for Tannakian symbols
-* /zetatypes/util -- Python code for lazy lists, and the berlekamp massey algorithm (utility functionality) 
+* /zetatypes/util -- Python code for lazy lists, and the Berlekamp-Massey algorithm (utility functionality) 
 * /spec -- Specification for formats (currently Edinburgh 1 format)
 * /data -- Example data. Currently contains a set of the most common multiplicative functions, in the Edinburgh 1 format.
-* /demo -- Contains jupyter notebooks with extensive usage examples of the code, as well as an automated identity explorer that can produce arbitrarily many identities between multiplicative functions.
+* /demo -- Contains Jupyter notebooks with extensive usage examples of the code, as well as an automated identity explorer that can produce arbitrarily many identities between multiplicative functions.
