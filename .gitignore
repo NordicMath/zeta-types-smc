@@ -1,3 +1,7 @@
 #Ignore directories beginning with ., except gitignore
 .*
 !.gitignore
+
+# Specific local notebooks not to be shared
+ConjectureTesting.ipynb
+Local Testing.ipynb
