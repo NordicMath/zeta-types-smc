@@ -39,7 +39,7 @@ class LazyList:
         return liftBinaryOpToLazyList(operator.add)(self, B)
     
     def __mul__(self, B):
-        return liftBinaryOpToLazyList(operator.mult)(self, B)
+        return liftBinaryOpToLazyList(operator.mul)(self, B)
     
     def __repr__(self, length = None):
         res = ""
